@@ -35,19 +35,19 @@ export const initializeAdmin = (admin: AdminJS): void => {
     throw new WrongArgumentError(INVALID_ADMINJS_INSTANCE);
   }
 
-  const pathFolderBunde = path.join(process.cwd(), '.adminjs');
-  console.log('[Adminjs-Express] pathFolderBunde:', pathFolderBunde);
+  const pathFolderBunde = path.join(process.cwd(), ".adminjs");
+  console.log("[Adminjs-Express] pathFolderBunde:", pathFolderBunde);
 
-    if (fs.existsSync(pathBundling)) {
-        console.log("✅ [Adminjs-Express] bundle already exists, skip bundling!");
-    } else {
-        console.log("[Adminjs-Express] wait adminjs bundling ...");
+  if (fs.existsSync(pathFolderBunde)) {
+    console.log("✅ [Adminjs-Express] bundle already exists, skip bundling!");
+  } else {
+    console.log("[Adminjs-Express] wait adminjs bundling ...");
 
-        admin.initialize().then(() => {
-            log.debug("AdminJS: bundle ready");
-            console.log("✅ AdminJS: bundle ready");
-        });
-    }
+    admin.initialize().then(() => {
+      log.debug("AdminJS: bundle ready");
+      console.log("✅ AdminJS: bundle ready");
+    });
+  }
 };
 
 export const routeHandler =
